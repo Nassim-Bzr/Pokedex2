@@ -83,19 +83,39 @@
   justify-content: center; /* Center the items horizontally */
   align-items: flex-start; /* Align items from the start of the flex container */
 }
+
+.ul-poke {
+  display: flex;
+  flex-direction: row; /* Change to row */
+  flex-wrap: wrap; /* Add wrap */
+  justify-content: center; /* Center the items horizontally */
+  align-items: flex-start; /* Align items from the start of the flex container */
+}
+
+.ul {
+  text-decoration: none;
+}
+.li {
+  text-decoration: none;
+}
+
 .card-poke {
   border: 5px solid yellow;
   margin: 1em; /* Adjust margin as necessary */
-  background-color:radial-gradient(circle, #eeaeca, #94bbe9);
+  background-color: radial-gradient(circle, #eeaeca, #94bbe9);
 
-    background-image: radial-gradient(circle, rgb(238, 174, 202), rgb(148, 187, 233));
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
+  background-image: radial-gradient(
+    circle,
+    rgb(238, 174, 202),
+    rgb(148, 187, 233)
+  );
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
 
   width: 30%; /* Adjust width to fit 3 items per row, subtracting margin */
 }

@@ -8,7 +8,20 @@ export default function PokemonTeam({ handleRemoveFromTeam }) {
     const savedTeam = JSON.parse(localStorage.getItem("pokemonTeam")) || [];
     setTeam(savedTeam);
   }, []);
-
+  useEffect(() => {
+    const handleTeamChange = () => {
+      const savedTeam = JSON.parse(localStorage.getItem("pokemonTeam")) || [];
+      setTeam(savedTeam);
+    };
+  
+    window.addEventListener("pokemonTeamChanged", handleTeamChange);
+  
+    // N'oubliez pas de nettoyer l'écouteur d'événements
+    return () => {
+      window.removeEventListener("pokemonTeamChanged", handleTeamChange);
+    };
+  }, []);
+  
   return (
     <div>
       <h1>Ma liste de Pokémon</h1>
@@ -63,7 +76,7 @@ export default function PokemonTeam({ handleRemoveFromTeam }) {
 
               <button
                 className="add-button"
-                onClick={() => handleRemoveFromTeam(pokemon)}
+                onClick={() => handleRemoveFromTeam(pokemon.id)}
               >
                 Retirer de l'équipe
               </button>

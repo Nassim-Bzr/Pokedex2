@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PokemonStarters({handleRemoveFromTeam}){
+export default function PokemonStarters({ handleRemoveFromTeam }) {
   const generations = [
     {
       generation: "rouge et bleu",
@@ -1178,13 +1178,14 @@ export default function PokemonStarters({handleRemoveFromTeam}){
   );
 
   const handleAddToTeam = (pokemon) => {
-
     const currentTeam = JSON.parse(localStorage.getItem("pokemonTeam")) || [];
-
 
     if (!currentTeam.some((p) => p.id === pokemon.id)) {
       const newTeam = [...currentTeam, pokemon];
       localStorage.setItem("pokemonTeam", JSON.stringify(newTeam));
+      
+window.dispatchEvent(new CustomEvent("pokemonTeamChanged"));
+
     } else {
       alert("Ce Pokémon est déjà dans votre équipe !");
     }
@@ -1245,7 +1246,7 @@ export default function PokemonStarters({handleRemoveFromTeam}){
                 Ajouter à l'équipe
               </button>
               <button
-                className="remove-button"
+                className="add-button"
                 onClick={() => handleRemoveFromTeam(pokemon)}
               >
                 Retirer de l'équipe
@@ -1310,7 +1311,7 @@ export default function PokemonStarters({handleRemoveFromTeam}){
                   Ajouter à l'équipe
                 </button>
                 <button
-                  className="remove-button"
+                  className="add-button"
                   onClick={() => handleRemoveFromTeam(pokemon)}
                 >
                   Retirer de l'équipe
@@ -1377,7 +1378,7 @@ export default function PokemonStarters({handleRemoveFromTeam}){
                     Ajouter à l'équipe
                   </button>
                   <button
-                    className="remove-button"
+                    className="add-button"
                     onClick={() => handleRemoveFromTeam(pokemon)}
                   >
                     Retirer de l'équipe
